@@ -61,7 +61,7 @@ class BankAccount {
     apartmentNumber: 5,
   });
 
-  myAccount.accountInfo(); // Client Name: John Doe, Balance: $1000
+  await myAccount.accountInfo(); // Client Name: John Doe, Balance: $1000
 
   try {
     console.log(await myAccount.deposit(500)); // Deposit successful! New Balance: $1500
