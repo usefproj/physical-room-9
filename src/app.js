@@ -22,15 +22,11 @@ class BankAccount {
       } else {
         console.log("Processing deposit...");
         setTimeout(() => {
-          resolve(amount);
+          this.balance += amount; // Update balance directly inside the Promise
+          resolve(`Deposit successful! New Balance: $${this.balance}`);
         }, 1000);
       }
     });
-  }
-
-  addAmount(amount) {
-    this.balance += amount;
-    return `Deposit successful! New Balance: $${this.balance}`;
   }
 
   async balanceCompare(amount) {
@@ -52,22 +48,22 @@ class BankAccount {
   }
 }
 
-const myAccount = new BankAccount("John Doe", 30, 1000, {
-  city: "New York",
-  street: "5th Avenue",
-  buildingNumber: 10,
-  apartmentNumber: 5,
-});
-
-myAccount
-  .deposit(500)
-  .then((amount) => {
-    console.log(myAccount.addAmount(amount));
-  })
-  .catch((error) => console.error("Deposit Error:", error));
-
+// ✅ Correctly invoke the arrow function
 (async () => {
-  console.log(await myAccount.withdraw(300));
-  console.log(await myAccount.withdraw(1500));
+  const myAccount = new BankAccount("John Doe", 30, 1000, {
+    city: "New York",
+    street: "5th Avenue",
+    buildingNumber: 10,
+    apartmentNumber: 5,
+  });
+
+  myAccount.accountInfo(); // Client Name: John Doe, Balance: $1000
+
+  try {
+    console.log(await myAccount.deposit(500)); // Processing deposit... // Deposit successful! New Balance: $1500
+  } catch (error) {
+    console.error("Deposit Error:", error);
+  }
+  console.log(await myAccount.withdraw(300)); // Withdrawal successful! New balance: $1200
+  console.log(await myAccount.withdraw(1500)); // Insufficient balance! Current balance: $1200
 })();
-console.log(myAccount);

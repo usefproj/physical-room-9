@@ -1,6 +1,5 @@
 # :sparkles: physical-room-9 :sparkles:
 
-
 We did a bank system where you can add clients and more functionality.
 
 ## The functionality of the code and use cases:
@@ -14,9 +13,10 @@ We did a bank system where you can add clients and more functionality.
 Made with :heart: by Room-9 team.
 
 ---
+
 ### Team Members:
 
-- Yousef Ehab
-- Yousef Arafat
-- Mutasimbellah Rehab
-- Mohamed Farouk
+- Yousef Ehab >> git and github and account info
+- Yousef Arafat >> withdrawal
+- Mutasimbellah Rehab >> made the class
+- Mohamed Farouk >> deposit
