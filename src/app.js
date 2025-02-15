@@ -11,6 +11,10 @@ class BankAccount {
     };
   }
 
+  accountInfo() {
+    console.log(`Client Name: ${this.name}, Balance: $${this.balance}`);
+  }
+
   deposit(amount) {
     return new Promise((resolve, reject) => {
       if (amount <= 0) {
