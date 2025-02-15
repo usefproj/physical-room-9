@@ -11,7 +11,6 @@ class BankAccount {
     };
   }
 
-  // Deposit function (using Promises)
   deposit(amount) {
     return new Promise((resolve, reject) => {
       if (amount <= 0) {
@@ -25,13 +24,11 @@ class BankAccount {
     });
   }
 
-  // Add amount to balance after deposit
   addAmount(amount) {
     this.balance += amount;
     return `Deposit successful! New Balance: $${this.balance}`;
   }
 
-  // Check if there are sufficient funds for withdrawal
   async balanceCompare(amount) {
     return new Promise((resolve) => {
       setTimeout(() => {
@@ -40,7 +37,6 @@ class BankAccount {
     });
   }
 
-  // Withdraw function (using async/await)
   async withdraw(amount) {
     const isEnoughBalance = await this.balanceCompare(amount);
     if (isEnoughBalance) {
@@ -52,7 +48,6 @@ class BankAccount {
   }
 }
 
-// Instantiate BankAccount
 const myAccount = new BankAccount("John Doe", 30, 1000, {
   city: "New York",
   street: "5th Avenue",
@@ -60,7 +55,6 @@ const myAccount = new BankAccount("John Doe", 30, 1000, {
   apartmentNumber: 5,
 });
 
-// Test deposit function
 myAccount
   .deposit(500)
   .then((amount) => {
@@ -69,6 +63,7 @@ myAccount
   .catch((error) => console.error("Deposit Error:", error));
 
 (async () => {
-  console.log(await myAccount.withdraw(300)); // Should succeed
-  console.log(await myAccount.withdraw(1500)); // Should fail due to insufficient balance
+  console.log(await myAccount.withdraw(300));
+  console.log(await myAccount.withdraw(1500));
 })();
+console.log(myAccount);
